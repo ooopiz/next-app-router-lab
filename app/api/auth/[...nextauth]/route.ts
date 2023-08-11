@@ -1,3 +1,4 @@
+import logger from "@/utils/logger";
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
@@ -6,6 +7,7 @@ const nextAuthUrl = process.env.NEXTAUTH_URL;
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 export const authOptions: NextAuthOptions = {
+  debug: false,
   // https://next-auth.js.org/configuration/providers/oauth
   providers: [
     CredentialsProvider({
@@ -60,17 +62,11 @@ export const authOptions: NextAuthOptions = {
     },
     // async jwt({ token, user, account, profile, isNewUser }) { return token }
   },
-  //logger: {
-  //  error(code, metadata) {
-  //    console.log(code, metadata)
-  //  },
-  //  warn(code) {
-  //    console.log(code)
-  //  },
-  //  debug(code, metadata) {
-  //    console.log(code, metadata)
-  //  }
-  //},
+  logger: {
+    error(code, metadata) { logger.error(metadata, code); },
+    warn(code) { logger.warn(code); },
+    debug(code, metadata) { logger.debug(metadata, code); }
+  },
   theme: {
     colorScheme: "dark", // "auto" | "dark" | "light"
     brandColor: "", // Hex color code
