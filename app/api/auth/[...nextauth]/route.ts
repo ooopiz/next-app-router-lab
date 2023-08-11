@@ -44,6 +44,9 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
+  session: {
+    maxAge: 7 * 24 * 60 * 60
+  },
   //pages: {
   //  signIn: '/auth/signin',
   //  //signOut: '/auth/signout',
