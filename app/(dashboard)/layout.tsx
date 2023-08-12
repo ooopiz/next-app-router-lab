@@ -14,8 +14,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="en">
     <body className={inter.className}>
       <StyledComponentsRegistry>
-        <NavLayout>{children} </NavLayout>
-        </StyledComponentsRegistry>
+        <NavLayout>{children}</NavLayout>
+      </StyledComponentsRegistry>
     </body>
   </html>
 );

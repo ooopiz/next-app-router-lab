@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   UserOutlined,
   VideoCameraOutlined,
@@ -11,8 +11,6 @@ import theme from "@/config/theme";
 
 
 export default function NavLayout({ children }: { children: React.ReactNode }) {
-  const [collapsed, setCollapsed] = useState(false);
-
   return (
     <ConfigProvider theme={theme}>
       <Layout hasSider>
